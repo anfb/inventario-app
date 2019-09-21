@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<type-mapping>
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_integer"
+			precision="18" not-null="false" scale="0">
+		</sql-type>
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_integer"
+			precision="18" not-null="true" scale="0">
+		</sql-type>
+		<sql-type jdbc-type="CHAR" hibernate-type="character"
+			not-null="false" length="2">
+		</sql-type>
+		<sql-type jdbc-type="CHAR" hibernate-type="character"
+			not-null="true" length="2">
+		</sql-type>
+		<sql-type jdbc-type="DATE" hibernate-type="date"
+			not-null="true">
+		</sql-type>
+		<sql-type jdbc-type="DATE" hibernate-type="date"
+			not-null="false">
+		</sql-type>
+	</type-mapping>
+	
+	<table-filter match-schema="SYS" match-name=".*" exclude="true"></table-filter>
+	<table-filter match-schema="SYSTEM" match-name=".*"
+		exclude="true">
+	</table-filter>
+	
+	<table-filter match-schema="INVENTARIO" match-name=".*"></table-filter>
+	<table schema="INVENTARIO" name="EQUIPAMENTOS" class="com.inventario.domain.Equipamento">
+		<column name="CODEQUP"></column>
+		<column name="TPEQP"></column>
+		<column name="MODELOEQP"></column>
+		<column name="DTCOMPRAEQP"></column>
+		<column name="VALEQP"></column>
+	</table>
+	
+</hibernate-reverse-engineering>
