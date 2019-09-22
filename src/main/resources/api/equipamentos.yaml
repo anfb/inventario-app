@@ -41,7 +41,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/Equipment'
+              $ref: '#/definitions/EquipmentFinal'
     post:
       tags:
         - equipment
@@ -93,7 +93,7 @@ paths:
         '200':
           description: Operacao realizada com sucesso
           schema:
-            $ref: '#/definitions/Equipment'
+            $ref: '#/definitions/EquipmentFinal'
         '404':
           description: Equipment nao encontrado
     put:
@@ -153,25 +153,6 @@ paths:
         '404':
           description: Equipment nao encontrado
 definitions:
-  EquipmentPaginado:
-    type: object
-    properties:
-      page:
-        type: integer
-        format: int64
-      perPage:
-        type: integer
-        format: int64
-      totalPages:
-        type: integer
-        format: int64
-      totalElements:
-        type: integer
-        format: int64
-      equipments:
-        type: array
-        items:
-          $ref: '#/definitions/Equipment'
   Equipment:
     type: object
     properties:
@@ -182,6 +163,28 @@ definitions:
       modelEquipment:
         type: string
       valEquipment:
+        type: integer
+      dtEquipment:
+        type: string
+        format: date
+      typeEquipment:
+        type: integer
+        format: "int64"
+      imageEquipment:
+       description: "Recebe imagem em formato de String base64"
+       type: string
+  EquipmentFinal:
+    type: object
+    properties:
+      codeEquipment:
+        description: "Identificador do equipment"
+        type: integer
+        format: "int64"
+      modelEquipment:
+        type: string
+      valEquipment:
+        type: integer
+      valEquipmentWithPercent:
         type: integer
       dtEquipment:
         type: string
