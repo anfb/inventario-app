@@ -1,12 +1,14 @@
 package com.inventario.api;
 
 import java.math.BigDecimal;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -24,7 +26,7 @@ import com.inventario.service.IInventarioService;
 public class InventarioApiController implements EquipmentsApi{
 	
 	@Value("${percentege.over.value}")
-	private BigDecimal VAL_EQUIPMENT_WITH_PERCENT;
+	private int VAL_EQUIPMENT_WITH_PERCENT;
 	
 	@Inject
 	private IInventarioService inventarioService;
@@ -65,8 +67,26 @@ public class InventarioApiController implements EquipmentsApi{
 		
 		com.inventario.api.model.EquipmentFinal result = eqpmentMapper.modelMapperEquipment().map(inventarioService.findByCodeEquipment(idEquipment), 
 				com.inventario.api.model.EquipmentFinal.class);
+
 		
-		result.setValEquipmentWithPercent(result.getValEquipmentWithPercent().multiply(VAL_EQUIPMENT_WITH_PERCENT));
+		
+		
+		java.time.LocalDate today = java.time.LocalDate.now();
+	//	int meses = today.getMonthValue() - result.getDtEquipment().getMonthOfYear();
+		
+		
+		
+		
+		int monthsBetween = Period.between(
+				java.time.LocalDate.of(result.getDtEquipment().getYear(), result.getDtEquipment().getMonthOfYear(), result.getDtEquipment().getDayOfMonth()).withDayOfMonth(1),
+				today.withDayOfMonth(1)).getMonths();
+				
+		 
+		double percent = result.getValEquipment().doubleValue();
+		for(int i = monthsBetween; i > 0; i--) {
+			percent -= percent * VAL_EQUIPMENT_WITH_PERCENT/100;
+		}
+		result.setValEquipmentWithPercent(BigDecimal.valueOf(percent));
 		
 		return new ResponseEntity<com.inventario.api.model.EquipmentFinal>(result, HttpStatus.OK);
 	}
@@ -81,13 +101,15 @@ public class InventarioApiController implements EquipmentsApi{
 		
 		for (Equipment equipment : listReturn) {
 			EquipmentFinal eqpFinal = eqpmentMapper.modelMapperEquipment().map(equipment, com.inventario.api.model.EquipmentFinal.class);
-			eqpFinal.setValEquipmentWithPercent(eqpFinal.getValEquipmentWithPercent().multiply(VAL_EQUIPMENT_WITH_PERCENT));
+			
 			result.add(eqpFinal);
 		}
 		return new ResponseEntity<List<com.inventario.api.model.EquipmentFinal>>(result, HttpStatus.OK);
 	}
 
 	@Override
+	@RequestMapping(value = "/equipments/{idEquipment}", produces = {
+			MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.DELETE)
 	public ResponseEntity<Void> removerEquipment(Integer idEquipment) {
 		inventarioService.deleteEquipment(idEquipment);
 		return new ResponseEntity<Void>(HttpStatus.OK);
