@@ -31,16 +31,6 @@ public class InventarioApiController implements EquipmentsApi{
 	public String helloWorld() {
 		return "Hello world";
 	}
-/*	
-	@RequestMapping(value = "/equipments/{idEquipment}", produces = {
-			MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
-	public ResponseEntity<Equipment> getEquipment(@PathVariable("idEquipment") Integer idEquipment) {
-		
-		Equipment equipmentResult = null;
-		equipmentResult = inventarioService.findByCodeEquipment(idEquipment);
-	
-		return new ResponseEntity<>(equipmentResult, HttpStatus.OK);
-	}*/
 
 	@Override
 	@RequestMapping(value = "/equipments", produces = {
@@ -53,12 +43,6 @@ public class InventarioApiController implements EquipmentsApi{
 		
 		final com.inventario.api.model.Equipment equipmentResponse = eqpmentMapper.modelMapperEquipment().map(newEquipment, com.inventario.api.model.Equipment.class);
 		return new ResponseEntity<com.inventario.api.model.Equipment>(equipmentResponse, HttpStatus.CREATED);
-	}
-
-	@Override
-	public ResponseEntity<com.inventario.api.model.Equipment> removerEquipment(String idEquipment) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -88,8 +72,13 @@ public class InventarioApiController implements EquipmentsApi{
 		for (Equipment equipment : listReturn) {
 			result.add(eqpmentMapper.modelMapperEquipment().map(equipment, com.inventario.api.model.Equipment.class));
 		}
-		
 		return new ResponseEntity<List<com.inventario.api.model.Equipment>>(result, HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<Void> removerEquipment(Integer idEquipment) {
+		inventarioService.deleteEquipment(idEquipment);
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
 	

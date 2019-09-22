@@ -18,4 +18,7 @@ public interface IInventarioRepository extends CrudRepository<Equipment, Integer
 
 	@Query("SELECT e FROM Equipment e WHERE codeEquipment=:codeEquipment")
 	public Equipment findEquipmentById(@Param("codeEquipment") Integer codeEquipment);
+	
+	
+	public void deleteEquipmentBycodeEquipment(Integer codeEquipment);
 }

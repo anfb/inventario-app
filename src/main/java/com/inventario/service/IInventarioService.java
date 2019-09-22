@@ -10,7 +10,7 @@ public interface IInventarioService {
 	
 	Equipment createEquipment(final Equipment equipment);
 	
-	void deleteEquipment (final Long codeEquipment);
+	void deleteEquipment (final Integer codeEquipment);
 	
 	Equipment updateEquipment (final Equipment equipamento);
 

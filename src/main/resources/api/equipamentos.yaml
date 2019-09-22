@@ -146,12 +146,10 @@ paths:
           in: path
           description: ID do Equipment
           required: true
-          type: string
+          type: integer
       responses:
         '200':
           description: Operacao realizada com sucesso
-          schema:
-            $ref: '#/definitions/Equipment'  
         '404':
           description: Equipment nao encontrado
 definitions:

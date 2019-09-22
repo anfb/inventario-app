@@ -7,6 +7,7 @@ import javax.inject.Named;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import com.inventario.converter.EquipmentMapper;
 import com.inventario.domain.Equipment;
 import com.inventario.repository.IInventarioRepository;
 import com.inventario.util.Utils;
@@ -39,9 +40,10 @@ public class InventarioServiceImpl implements IInventarioService{
 	}
 
 	@Override
-	public void deleteEquipment(Long codeEquipment) {
-		// TODO Auto-generated method stub
-		
+	public void deleteEquipment(Integer codeEquipment) {
+		if (Utils.isNotNullAndEmpty(codeEquipment)) {
+			repository.deleteEquipmentBycodeEquipment(codeEquipment);
+		}
 	}
 
 	@Override
