@@ -21,7 +21,11 @@ public class InventarioServiceImpl implements IInventarioService{
 	
 	@Override
 	public Equipment findByCodeEquipment(Integer codeEquipment) {
-		return null; //repository.findByCodEquipamento(codeEquipment);
+		Equipment equipment = new Equipment();
+		if (Utils.isNotNullAndEmpty(codeEquipment)) {
+			equipment = repository.findEquipmentById(codeEquipment);
+		}
+		return equipment; 
 	}
 
 	@Override

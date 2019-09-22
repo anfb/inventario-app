@@ -72,8 +72,9 @@ public class InventarioApiController implements EquipmentsApi{
 	@RequestMapping(value = "/equipments/{idEquipment}", produces = {
 			MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.GET)
 	public ResponseEntity<com.inventario.api.model.Equipment> getEquipment(Integer idEquipment) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		com.inventario.api.model.Equipment result = eqpmentMapper.modelMapperEquipment().map(inventarioService.findByCodeEquipment(idEquipment), com.inventario.api.model.Equipment.class);
+		return new ResponseEntity<com.inventario.api.model.Equipment>(result, HttpStatus.OK);
 	}
 	
 	@Override
