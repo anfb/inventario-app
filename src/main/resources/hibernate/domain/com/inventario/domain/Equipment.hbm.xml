@@ -30,7 +30,7 @@
 		</property>
 				
 		<property generated="never" lazy="false" name="imageEquipment" optimistic-lock="true" type="string" unique="false">
-			<column length="500" name="IMGEQP" not-null="true" />
+			<column sql-type="longtext" name="IMGEQP" not-null="true" />
 		</property>
 		
 	</class>	
