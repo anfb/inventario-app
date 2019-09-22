@@ -3,17 +3,29 @@
 <hibernate-reverse-engineering>
 
 	<type-mapping>
-		<sql-type jdbc-type="NUMERIC" hibernate-type="integer"
-			precision="18" not-null="false" scale="0">
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_integer"
+			precision="22" not-null="false" scale="0">
 		</sql-type>
-		<sql-type jdbc-type="NUMERIC" hibernate-type="integer"
-			precision="18" not-null="true" scale="0">
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_integer"
+			precision="22" not-null="true" scale="0">
 		</sql-type>
-		<sql-type jdbc-type="CHAR" hibernate-type="character"
-			not-null="false" length="2">
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_decimal"
+			scale="2" precision="14" not-null="false">
 		</sql-type>
-		<sql-type jdbc-type="CHAR" hibernate-type="character"
-			not-null="true" length="2">
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_decimal"
+			scale="2" precision="14" not-null="true">
+		</sql-type>
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_decimal"
+			scale="5" precision="2" not-null="false">
+		</sql-type>
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_decimal"
+			scale="5" precision="2" not-null="true">
+		</sql-type>
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_decimal"
+			scale="14" precision="6" not-null="false">
+		</sql-type>
+		<sql-type jdbc-type="NUMERIC" hibernate-type="big_decimal"
+			scale="14" precision="6" not-null="true">
 		</sql-type>
 		<sql-type jdbc-type="DATE" hibernate-type="date"
 			not-null="true">

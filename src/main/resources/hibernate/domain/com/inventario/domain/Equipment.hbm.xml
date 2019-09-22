@@ -25,8 +25,8 @@
 		</property>
 		
 		<!-- VALOR EQUIPAMENTO -->
-		<property generated="never" lazy="false" name="valEquipment" optimistic-lock="true" type="integer" unique="false">
-			<column length="7" name="VALEQP" not-null="true" />
+		<property generated="never" lazy="false" name="valEquipment" optimistic-lock="true" type="big_decimal" unique="false">
+		<column sql-type="decimal(10,2)" length="7" name="VALEQP" not-null="true" precision="5" />
 		</property>
 				
 		<property generated="never" lazy="false" name="imageEquipment" optimistic-lock="true" type="string" unique="false">

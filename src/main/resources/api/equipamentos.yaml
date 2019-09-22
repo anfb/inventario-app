@@ -163,7 +163,7 @@ definitions:
       modelEquipment:
         type: string
       valEquipment:
-        type: integer
+        type: "number"
       dtEquipment:
         type: string
         format: date
@@ -183,9 +183,9 @@ definitions:
       modelEquipment:
         type: string
       valEquipment:
-        type: integer
+        type: "number"
       valEquipmentWithPercent:
-        type: integer
+        type: "number"
       dtEquipment:
         type: string
         format: date

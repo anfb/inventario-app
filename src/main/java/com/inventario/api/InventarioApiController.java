@@ -1,5 +1,6 @@
 package com.inventario.api;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import com.inventario.service.IInventarioService;
 public class InventarioApiController implements EquipmentsApi{
 	
 	@Value("${percentege.over.value}")
-	private Integer VAL_EQUIPMENT_WITH_PERCENT;
+	private BigDecimal VAL_EQUIPMENT_WITH_PERCENT;
 	
 	@Inject
 	private IInventarioService inventarioService;
@@ -65,7 +66,7 @@ public class InventarioApiController implements EquipmentsApi{
 		com.inventario.api.model.EquipmentFinal result = eqpmentMapper.modelMapperEquipment().map(inventarioService.findByCodeEquipment(idEquipment), 
 				com.inventario.api.model.EquipmentFinal.class);
 		
-		result.setValEquipmentWithPercent(result.getValEquipmentWithPercent()*VAL_EQUIPMENT_WITH_PERCENT);
+		result.setValEquipmentWithPercent(result.getValEquipmentWithPercent().multiply(VAL_EQUIPMENT_WITH_PERCENT));
 		
 		return new ResponseEntity<com.inventario.api.model.EquipmentFinal>(result, HttpStatus.OK);
 	}
@@ -80,7 +81,7 @@ public class InventarioApiController implements EquipmentsApi{
 		
 		for (Equipment equipment : listReturn) {
 			EquipmentFinal eqpFinal = eqpmentMapper.modelMapperEquipment().map(equipment, com.inventario.api.model.EquipmentFinal.class);
-			eqpFinal.setValEquipmentWithPercent(eqpFinal.getValEquipmentWithPercent()*VAL_EQUIPMENT_WITH_PERCENT);
+			eqpFinal.setValEquipmentWithPercent(eqpFinal.getValEquipmentWithPercent().multiply(VAL_EQUIPMENT_WITH_PERCENT));
 			result.add(eqpFinal);
 		}
 		return new ResponseEntity<List<com.inventario.api.model.EquipmentFinal>>(result, HttpStatus.OK);
