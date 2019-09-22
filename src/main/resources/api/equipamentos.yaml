@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: >
-    API para gestao de equipamentos - MicroService.
+    Management equipments API - MicroService.
   version: 1.0.0
   title: InventarioAPI
   contact:
@@ -9,67 +9,29 @@ info:
 host: localhost:8090
 basePath: /
 tags:
-  - name: equipamento
-    description: Definicao de equipamento
+  - name: equipment
+    description: Definition of equipment
 schemes:
   - http
   - https
 paths:
-  /equipamentos:
+  /equipments:
     get:
       tags:
-        - equipamento
-      summary: Lista os equipamentos
-      description: Lista os equipamentos
-      operationId: listarEquipamentos
+        - equipment
+      summary: List equipments
+      description: List equipments
+      operationId: listEquipments
       produces:
         - application/json
         - text/csv
-      parameters:
-        - name: ids
-          in: query
-          description: Ids dos equipamentos usado para busca com %LIKE%
-          required: false
-          type: string
-        - name: orderByType
-          in: query
-          description: Tipo da ordem asc ou desc
-          required: false 
-          type: string
-          enum: [ASC, DESC]
-        - name: orderBy
-          in: query
-          description: Ordenar por ID, NOME ou CODEQUIPAMENTO(enum value)
-          required: false 
-          type: string
-          enum: [ID, NOME, CODEQUIPAMENTO]
-        - name: page
-          in: query
-          description: >-
-            Pagina a ser recuperada, comecando de 1 e se omitida a primeira
-            pagina com 200 registros e retornada
-          required: false
-          type: integer
-          format: int32
-        - name: per_page
-          in: query
-          description: 'Quantidade de itens por pagina, no maximo 200'
-          required: false
-          type: integer
-          format: int32
-        - name: format
-          in: query
-          description: 'Usado para links web. Padrao json'
-          required: false
-          type: string
-          enum: [json, csv]
       responses:
         '200':
           description: Operacao realizada com sucesso
           headers:
             X-Total-Elements:
               type: integer
-              description: Total de equipamentos disponiveis para navegacao.
+              description: Total de equipments disponiveis para navegacao.
             X-Total-Pages:
               type: integer
               description: Total de paginas disponiveis par navegacao.
@@ -77,13 +39,15 @@ paths:
               type: string
               description: Links para navegacao entre paginas.
           schema:
-            $ref: '#/definitions/EquipamentoPaginado'
+            type: array
+            items:
+              $ref: '#/definitions/Equipment'
     post:
       tags:
-        - equipamento
-      summary: Adiciona um equipamento
+        - equipment
+      summary: Adiciona um equipment
       description: ''
-      operationId: criarEquipamento
+      operationId: createEquipment
       consumes:
         - application/json
       produces:
@@ -91,107 +55,107 @@ paths:
       parameters:
         - in: body
           name: body
-          description: equipamento a ser armazenado
+          description: equipment a ser armazenado
           required: true
           schema:
-            $ref: '#/definitions/Equipamento'
+            $ref: '#/definitions/Equipment'
       responses:
         '200':
           description: Operacao realizada com sucesso
           headers:
             Location:
               type: string
-              description: link para um novo equipamento
+              description: link para um novo equipment
           schema:
-            $ref: '#/definitions/Equipamento'
+            $ref: '#/definitions/Equipment'
         '400':
           description: Entrada invalida
         '409':
           description: Modelo de Consistencia
           schema:
-            $ref: '#/definitions/Equipamento'
-  '/equipamentos/{idEquipamento}':
+            $ref: '#/definitions/Equipment'
+  '/equipments/{idEquipment}':
     get:
       tags:
-        - equipamento
-      summary: Recupera um equipamento
+        - equipment
+      summary: Recupera um equipment
       description: ''
-      operationId: obterEquipamento
+      operationId: getEquipment
       produces:
         - application/json
       parameters:
-        - name: idEquipamento
+        - name: idEquipment
           in: path
-          description: ID do Equipamento
+          description: ID do Equipment
           required: true
-          type: string
+          type: integer
       responses:
         '200':
           description: Operacao realizada com sucesso
           schema:
-            $ref: '#/definitions/Equipamento'
+            $ref: '#/definitions/Equipment'
         '404':
-          description: Equipamento nao encontrado
+          description: Equipment nao encontrado
     put:
       tags: 
-        - equipamento
-      summary: Atualiza um equipamento
+        - equipment
+      summary: Atualiza um equipment
       description: ''
-      operationId: atualizarEquipamento
+      operationId: updateEquipment
       produces: 
         - application/json
       consumes: 
         - application/json
       parameters: 
-        - name: idEquipamento
+        - name: idEquipment
           in: path
-          description: ID do Equipamento
+          description: ID do Equipment
           required: true
           type: string
         - in: body
           name: body
-          description: equipamento a ser atualizado
+          description: Equipment a ser atualizado
           required: true
           schema:
-            $ref: '#/definitions/Equipamento'
+            $ref: '#/definitions/Equipment'
       responses:
         '200':
           description: Operacao realizada com sucesso
           headers:
             Location:
               type: string
-              description: link para um novo equipamento
+              description: link para um novo Equipment
           schema:
-            $ref: '#/definitions/Equipamento'
+            $ref: '#/definitions/Equipment'
         '400':
           description: Entrada invalida
           schema:
-            $ref: '#/definitions/Equipamento'
+            $ref: '#/definitions/Equipment'
         '409':
           description: Conflito
           schema:
-            $ref: '#/definitions/Equipamento'  
+            $ref: '#/definitions/Equipment'  
     delete:
       tags: 
-        - equipamento
-      summary: Remove um equipamento
+        - equipment
+      summary: Remove um Equipment
       description: ''
-      operationId: removerEquipamento
+      operationId: removerEquipment
       parameters: 
-        - name: idEquipamento
+        - name: idEquipment
           in: path
-          description: ID do Equipamento
+          description: ID do Equipment
           required: true
           type: string
       responses:
         '200':
           description: Operacao realizada com sucesso
           schema:
-            $ref: '#/definitions/Equipamento'  
+            $ref: '#/definitions/Equipment'  
         '404':
-          description: Equipamento nao encontrado
+          description: Equipment nao encontrado
 definitions:
-  EquipamentoPaginado:
+  EquipmentPaginado:
     type: object
     properties:
       page:
@@ -206,28 +170,28 @@ definitions:
       totalElements:
         type: integer
         format: int64
-      equipamentos:
+      equipments:
         type: array
         items:
-          $ref: '#/definitions/Equipamento'
-  Equipamento:
+          $ref: '#/definitions/Equipment'
+  Equipment:
     type: object
     properties:
-      code:
-        description: "Identificador do equipamento"
+      codeEquipment:
+        description: "Identificador do equipment"
         type: integer
         format: "int64"
-      modelo:
+      modelEquipment:
         type: string
-      valor:
+      valEquipment:
         type: integer
-      aquisicao:
+      dtEquipment:
         type: string
         format: date
-      tipo:
+      typeEquipment:
         type: integer
         format: "int64"
-      imagem:
+      imageEquipment:
        description: "Recebe imagem em formato de String base64"
        type: string
               

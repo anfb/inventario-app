@@ -1,21 +1,18 @@
 package com.inventario.service;
 
-import com.inventario.api.model.Equipamento;
+import java.util.List;
+
+import com.inventario.domain.Equipment;
 
 public interface IInventarioService {
 	
-	Equipamento findByCodeEquipamento (final Long codeEquipamento);
+	Equipment findByCodeEquipment (final Integer codeEquipment);
 	
-	Equipamento create(final Equipamento equipamento);
+	Equipment createEquipment(final Equipment equipment);
 	
-	void delete (final Long codeEquipamento);
+	void deleteEquipment (final Long codeEquipment);
 	
-	Equipamento update(final Equipamento equipamento);
-	
-	//Page<Equipamento> findAll(final Pageable pageable);
-	
-	
-	
-	
-	
+	Equipment updateEquipment (final Equipment equipamento);
+
+	List<Equipment> findAllEquipment(); 
 }

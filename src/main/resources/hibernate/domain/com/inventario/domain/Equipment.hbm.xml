@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+	<class dynamic-insert="false" dynamic-update="false" mutable="true" name="com.inventario.domain.Equipment" optimistic-lock="version" polymorphism="implicit" schema="INVENTARIO" select-before-update="false" table="EQUIPAMENTOS">
+		
+	
+		<id name="codeEquipment" type="integer" unsaved-value="undefined" column="codeEqp">
+      		<generator class="increment" />
+    	</id>
+		
+		<!-- TIPO EQUIPAMENTO -->
+		<property generated="never" lazy="false" name="typeEquipment" optimistic-lock="true" type="string" unique="false">
+			<column length="1" name="TPEQP" not-null="true" />
+		</property>
+		
+		<!-- MODELO EQUIPAMENTO -->
+		<property generated="never" lazy="false" name="modelEquipment" optimistic-lock="true" type="string" unique="false">
+			<column length="100" name="MODELOEQP" not-null="true" />
+		</property>
+		
+		<!-- DATA AQUISICAO EQUIPAMENTO -->
+		<property generated="never" lazy="false" name="dtEquipment" optimistic-lock="true" type="date" unique="false">
+			<column length="7" name="DTCOMPRAEQP" not-null="true" />
+		</property>
+		
+		<!-- VALOR EQUIPAMENTO -->
+		<property generated="never" lazy="false" name="valEquipment" optimistic-lock="true" type="integer" unique="false">
+			<column length="7" name="VALEQP" not-null="true" />
+		</property>
+				
+		<property generated="never" lazy="false" name="imageEquipment" optimistic-lock="true" type="string" unique="false">
+			<column length="500" name="IMGEQP" not-null="true" />
+		</property>
+		
+	</class>	
+</hibernate-mapping>
