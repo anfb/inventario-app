@@ -27,17 +27,17 @@ paths:
         - text/csv
       responses:
         '200':
-          description: Operacao realizada com sucesso
+          description: successfully performed.
           headers:
             X-Total-Elements:
               type: integer
-              description: Total de equipments disponiveis para navegacao.
+              description: Total equipment available.
             X-Total-Pages:
               type: integer
-              description: Total de paginas disponiveis par navegacao.
+              description: Total equipment pages available.
             Link:
               type: string
-              description: Links para navegacao entre paginas.
+              description: Links to navegation.
           schema:
             type: array
             items:
@@ -45,7 +45,7 @@ paths:
     post:
       tags:
         - equipment
-      summary: Adiciona um equipment
+      summary: Add um equipment
       description: ''
       operationId: createEquipment
       consumes:
@@ -55,30 +55,30 @@ paths:
       parameters:
         - in: body
           name: body
-          description: equipment a ser armazenado
+          description: register equipment
           required: true
           schema:
             $ref: '#/definitions/Equipment'
       responses:
         '200':
-          description: Operacao realizada com sucesso
+          description: successfully performed.
           headers:
             Location:
               type: string
-              description: link para um novo equipment
+              description: link to new equipment
           schema:
             $ref: '#/definitions/Equipment'
         '400':
-          description: Entrada invalida
+          description: Invalid Input
         '409':
-          description: Modelo de Consistencia
+          description: inconsistent model
           schema:
             $ref: '#/definitions/Equipment'
   '/equipments/{codeEquipment}':
     get:
       tags:
         - equipment
-      summary: Recupera um equipment
+      summary: recover equipment
       description: ''
       operationId: getEquipment
       produces:
@@ -86,39 +86,39 @@ paths:
       parameters:
         - name: codeEquipment
           in: path
-          description: ID do Equipment
+          description: Equipment code
           required: true
           type: integer
       responses:
         '200':
-          description: Operacao realizada com sucesso
+          description: successfully performed.
           schema:
             $ref: '#/definitions/EquipmentFinal'
         '404':
-          description: Equipment nao encontrado 
+          description: Equipment not found 
     delete:
       tags: 
         - equipment
-      summary: Remove um Equipment
+      summary: Remove equipment
       description: ''
-      operationId: removerEquipment
+      operationId: removeEquipment
       parameters: 
         - name: codeEquipment
           in: path
-          description: ID do Equipment
+          description: Equipment code
           required: true
           type: integer
       responses:
         '200':
-          description: Operacao realizada com sucesso
+          description: successfully performed.
         '404':
-          description: Equipment nao encontrado
+          description: Equipment not found
 definitions:
   Equipment:
     type: object
     properties:
       codeEquipment:
-        description: "Identificador do equipment"
+        description: "Identification equipment code"
         type: integer
         format: "int64"
       modelEquipment:
@@ -132,13 +132,13 @@ definitions:
         type: integer
         format: "int64"
       imageEquipment:
-       description: "Recebe imagem em formato de String base64"
+       description: "base64 format image"
        type: string
   EquipmentFinal:
     type: object
     properties:
       codeEquipment:
-        description: "Identificador do equipment"
+        description: "Identification equipment code"
         type: integer
         format: "int64"
       modelEquipment:
@@ -154,6 +154,6 @@ definitions:
         type: integer
         format: "int64"
       imageEquipment:
-       description: "Recebe imagem em formato de String base64"
+       description: "base64 format image"
        type: string
               

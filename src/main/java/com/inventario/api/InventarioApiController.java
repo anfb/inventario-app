@@ -113,7 +113,7 @@ public class InventarioApiController implements EquipmentsApi{
 	@Override
 	@RequestMapping(value = "/equipments/{codeEquipment}", produces = {
 			MediaType.APPLICATION_JSON_VALUE }, method = RequestMethod.DELETE)
-	public ResponseEntity<Void> removerEquipment(Integer codeEquipment) {
+	public ResponseEntity<Void> removeEquipment(Integer codeEquipment) {
 		
 			if (Utils.isNotNull(codeEquipment)) {
 				try {
