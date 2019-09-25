@@ -7,7 +7,6 @@ import javax.inject.Named;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.inventario.converter.EquipmentMapper;
 import com.inventario.domain.Equipment;
 import com.inventario.repository.IInventarioRepository;
 import com.inventario.util.Utils;

@@ -18,31 +18,31 @@
         "steps": [
           {
             "result": {
-              "duration": 313139410,
+              "duration": 263424805,
               "status": "passed"
             },
             "line": 6,
             "name": "user has access to the /equipment API",
             "match": {
-              "location": "EquipmentApiStepdefs.java:29"
+              "location": "EquipmentApiStepdefs.java:31"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 4866384588,
+              "duration": 2435423610,
               "status": "passed"
             },
             "line": 7,
             "name": "user calls GET equipment",
             "match": {
-              "location": "EquipmentApiStepdefs.java:31"
+              "location": "EquipmentApiStepdefs.java:33"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 64305098,
+              "duration": 198374362,
               "status": "passed"
             },
             "line": 8,
@@ -54,7 +54,7 @@
                   "offset": 29
                 }
               ],
-              "location": "EquipmentApiStepdefs.java:35"
+              "location": "EquipmentApiStepdefs.java:37"
             },
             "matchedColumns": [
               0
@@ -73,35 +73,47 @@
         "steps": [
           {
             "result": {
-              "duration": 17746,
+              "duration": 20390,
               "status": "passed"
             },
             "line": 15,
             "name": "user has access to the /equipment API",
             "match": {
-              "location": "EquipmentApiStepdefs.java:29"
+              "location": "EquipmentApiStepdefs.java:31"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 3081483532,
+              "duration": 1021127178,
               "status": "passed"
             },
             "line": 16,
-            "name": "user calls POST equipments with \"name1\", 5, , , ",
+            "name": "user calls POST equipments with \"Modelo Teste\", 34, \"2019-04-08\", 1, \"Teste teste\"",
             "match": {
               "arguments": [
                 {
-                  "val": "name1",
+                  "val": "Modelo Teste",
                   "offset": 33
                 },
                 {
-                  "val": "5",
-                  "offset": 41
+                  "val": "34",
+                  "offset": 48
+                },
+                {
+                  "val": "2019-04-08",
+                  "offset": 53
+                },
+                {
+                  "val": "1",
+                  "offset": 66
+                },
+                {
+                  "val": "Teste teste",
+                  "offset": 70
                 }
               ],
-              "location": "EquipmentApiStepdefs.java:39"
+              "location": "EquipmentApiStepdefs.java:41"
             },
             "matchedColumns": [
               0,
@@ -114,7 +126,7 @@
           },
           {
             "result": {
-              "duration": 735869119,
+              "duration": 1041303229,
               "status": "passed"
             },
             "line": 17,
@@ -126,7 +138,7 @@
                   "offset": 29
                 }
               ],
-              "location": "EquipmentApiStepdefs.java:46"
+              "location": "EquipmentApiStepdefs.java:47"
             },
             "matchedColumns": [
               5
@@ -137,52 +149,43 @@
       },
       {
         "line": 30,
-        "name": "User makes call to DELETE /equipment/1",
+        "name": "User makes call to GET /equipment/\u003ccodeEquipment\u003e",
         "description": "",
-        "id": "management-of-equipments;user-makes-call-to-delete-/equipment/\u003ccodeequipment\u003e;;2",
+        "id": "management-of-equipments;user-makes-call-to-get-/equipment/\u003ccodeequipment\u003e;;2",
         "type": "scenario",
         "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 18124,
+              "duration": 24165,
               "status": "passed"
             },
             "line": 24,
             "name": "user has access to the /equipment API",
             "match": {
-              "location": "EquipmentApiStepdefs.java:29"
+              "location": "EquipmentApiStepdefs.java:31"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 55639232,
+              "duration": 52011809,
               "status": "passed"
             },
             "line": 25,
-            "name": "user calls DELETE equipment 1",
+            "name": "user calls GET equipment with codeEquipment",
             "match": {
-              "arguments": [
-                {
-                  "val": "1",
-                  "offset": 28
-                }
-              ],
               "location": "EquipmentApiStepdefs.java:52"
             },
-            "matchedColumns": [
-              0
-            ],
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 712873,
+              "duration": 899398,
               "status": "passed"
             },
             "line": 26,
-            "name": "user receives status code of 200 after delete equipment",
+            "name": "user receives status code of 200 and one equipment",
             "match": {
               "arguments": [
                 {
@@ -193,7 +196,7 @@
               "location": "EquipmentApiStepdefs.java:56"
             },
             "matchedColumns": [
-              1
+              0
             ],
             "keyword": "Then "
           }
@@ -201,7 +204,7 @@
       },
       {
         "line": 39,
-        "name": "User makes call to GET /equipment/1",
+        "name": "User makes call to GET /equipment/",
         "description": "",
         "id": "management-of-equipments;user-makes-call-to-get-/equipment/\u003ccodeequipment\u003e;;2",
         "type": "scenario",
@@ -209,31 +212,86 @@
         "steps": [
           {
             "result": {
-              "duration": 858242,
+              "duration": 17746,
               "status": "passed"
             },
             "line": 33,
             "name": "user has access to the /equipment API",
             "match": {
-              "location": "EquipmentApiStepdefs.java:29"
+              "location": "EquipmentApiStepdefs.java:31"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 99883063,
+              "duration": 49495986,
               "status": "passed"
             },
             "line": 34,
-            "name": "user calls GET equipment 1",
+            "name": "user calls GET equipment withough codeEquipment",
+            "match": {
+              "location": "EquipmentApiStepdefs.java:60"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 653971,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "user receives status code of 400 after find equipment withough code",
             "match": {
               "arguments": [
                 {
-                  "val": "1",
-                  "offset": 25
+                  "val": "400",
+                  "offset": 29
                 }
               ],
-              "location": "EquipmentApiStepdefs.java:60"
+              "location": "EquipmentApiStepdefs.java:65"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 48,
+        "name": "User makes call to GET /equipment/12t",
+        "description": "",
+        "id": "management-of-equipments;user-makes-call-to-get-/equipment/\u003ccodeequipment\u003e;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 58148,
+              "status": "passed"
+            },
+            "line": 42,
+            "name": "user has access to the /equipment API",
+            "match": {
+              "location": "EquipmentApiStepdefs.java:31"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 62276354,
+              "status": "passed"
+            },
+            "line": 43,
+            "name": "user calls GET equipment wrong codeEquipment 12t",
+            "match": {
+              "arguments": [
+                {
+                  "val": "12",
+                  "offset": 45
+                }
+              ],
+              "location": "EquipmentApiStepdefs.java:69"
             },
             "matchedColumns": [
               0
@@ -242,12 +300,66 @@
           },
           {
             "result": {
-              "duration": 33653056,
-              "error_message": "java.lang.AssertionError: 1 expectation failed.\nExpected status code \u003c200\u003e but was \u003c500\u003e.\n\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.invoke(CachedConstructor.java:80)\r\n\tat org.codehaus.groovy.reflection.CachedConstructor.doConstructorInvoke(CachedConstructor.java:74)\r\n\tat org.codehaus.groovy.runtime.callsite.ConstructorSite$ConstructorSiteNoUnwrap.callConstructor(ConstructorSite.java:84)\r\n\tat org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallConstructor(CallSiteArray.java:59)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:237)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callConstructor(AbstractCallSite.java:249)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure.validate(ResponseSpecificationImpl.groovy:494)\r\n\tat io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:656)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoCachedMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:190)\r\n\tat org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:58)\r\n\tat org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:168)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:125)\r\n\tat io.restassured.specification.ResponseSpecification$statusCode$4.callCurrent(Unknown Source)\r\n\tat io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:133)\r\n\tat io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:119)\r\n\tat com.inventario.api.EquipmentApiStepdefs.lambda$8(EquipmentApiStepdefs.java:65)\r\n\tat ✽.Then user receives status code of 200 and one equipment(src/test/resources/features/equipment.feature:35)\r\n",
-              "status": "failed"
+              "duration": 2327788,
+              "status": "passed"
             },
-            "line": 35,
-            "name": "user receives status code of 200 and one equipment",
+            "line": 44,
+            "name": "user receives status code of 500 after find wrong code equipment",
+            "match": {
+              "arguments": [
+                {
+                  "val": "500",
+                  "offset": 29
+                }
+              ],
+              "location": "EquipmentApiStepdefs.java:73"
+            },
+            "matchedColumns": [
+              1
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 57,
+        "name": "User makes call to DELETE /equipment/\u003ccodeEquipment\u003e",
+        "description": "",
+        "id": "management-of-equipments;user-makes-call-to-delete-/equipment/\u003ccodeequipment\u003e;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 16614,
+              "status": "passed"
+            },
+            "line": 51,
+            "name": "user has access to the /equipment API",
+            "match": {
+              "location": "EquipmentApiStepdefs.java:31"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 56845981,
+              "status": "passed"
+            },
+            "line": 52,
+            "name": "user calls DELETE equipment",
+            "match": {
+              "location": "EquipmentApiStepdefs.java:77"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 702301,
+              "status": "passed"
+            },
+            "line": 53,
+            "name": "user receives status code of 200 after delete equipment",
             "match": {
               "arguments": [
                 {
@@ -255,7 +367,62 @@
                   "offset": 29
                 }
               ],
-              "location": "EquipmentApiStepdefs.java:64"
+              "location": "EquipmentApiStepdefs.java:81"
+            },
+            "matchedColumns": [
+              0
+            ],
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "line": 66,
+        "name": "User makes call to DELETE /equipment/",
+        "description": "",
+        "id": "management-of-equipments;user-makes-call-to-delete-/equipment/\u003ccodeequipment\u003e;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 15859,
+              "status": "passed"
+            },
+            "line": 60,
+            "name": "user has access to the /equipment API",
+            "match": {
+              "location": "EquipmentApiStepdefs.java:31"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 27984807,
+              "status": "passed"
+            },
+            "line": 61,
+            "name": "user calls DELETE equipment withough codeEquipment",
+            "match": {
+              "location": "EquipmentApiStepdefs.java:85"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1494844,
+              "status": "passed"
+            },
+            "line": 62,
+            "name": "user receives status code of 405 after delete equipment withough code",
+            "match": {
+              "arguments": [
+                {
+                  "val": "405",
+                  "offset": 29
+                }
+              ],
+              "location": "EquipmentApiStepdefs.java:89"
             },
             "matchedColumns": [
               1

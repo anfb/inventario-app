@@ -74,7 +74,7 @@ paths:
           description: Modelo de Consistencia
           schema:
             $ref: '#/definitions/Equipment'
-  '/equipments/{idEquipment}':
+  '/equipments/{codeEquipment}':
     get:
       tags:
         - equipment
@@ -84,7 +84,7 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: idEquipment
+        - name: codeEquipment
           in: path
           description: ID do Equipment
           required: true
@@ -95,46 +95,7 @@ paths:
           schema:
             $ref: '#/definitions/EquipmentFinal'
         '404':
-          description: Equipment nao encontrado
-    put:
-      tags: 
-        - equipment
-      summary: Atualiza um equipment
-      description: ''
-      operationId: updateEquipment
-      produces: 
-        - application/json
-      consumes: 
-        - application/json
-      parameters: 
-        - name: idEquipment
-          in: path
-          description: ID do Equipment
-          required: true
-          type: string
-        - in: body
-          name: body
-          description: Equipment a ser atualizado
-          required: true
-          schema:
-            $ref: '#/definitions/Equipment'
-      responses:
-        '200':
-          description: Operacao realizada com sucesso
-          headers:
-            Location:
-              type: string
-              description: link para um novo Equipment
-          schema:
-            $ref: '#/definitions/Equipment'
-        '400':
-          description: Entrada invalida
-          schema:
-            $ref: '#/definitions/Equipment'
-        '409':
-          description: Conflito
-          schema:
-            $ref: '#/definitions/Equipment'  
+          description: Equipment nao encontrado 
     delete:
       tags: 
         - equipment
@@ -142,7 +103,7 @@ paths:
       description: ''
       operationId: removerEquipment
       parameters: 
-        - name: idEquipment
+        - name: codeEquipment
           in: path
           description: ID do Equipment
           required: true
